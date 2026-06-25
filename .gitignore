@@ -1,0 +1,15 @@
+# ── Frontend ──────────────────────────────────────────────────────────────────
+frontend/.next/
+frontend/node_modules/
+frontend/.env.local
+frontend/.env
+
+# ── Backend ───────────────────────────────────────────────────────────────────
+backend/dist/
+backend/node_modules/
+backend/.env
+
+# ── General ───────────────────────────────────────────────────────────────────
+.DS_Store
+*.log
+coverage/

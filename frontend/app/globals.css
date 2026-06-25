@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base reset ──────────────────────────────────────────────────────────────*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── Theme CSS variables ─────────────────────────────────────────────────────*/
+@layer base {
+  /* Dark theme (default) */
+  :root {
+    --color-bg:           #0d1117;
+    --color-surface:      #161b22;
+    --color-border:       #30363d;
+    --color-text:         #ffffff;
+    --color-subtext:      #8b949e;
+    --color-accent:       #7c3aed;
+    --color-accent-hover: #6d28d9;
+    --color-code-bg:      #0d1117;
+
+    /* Semantic tokens — same across both themes */
+    --color-critical:        #f87171;
+    --color-critical-bg:     rgba(239,68,68,0.10);
+    --color-critical-border: #ef4444;
+
+    --color-warning:         #f59e0b;
+    --color-warning-bg:      rgba(245,158,11,0.10);
+    --color-warning-border:  #f59e0b;
+
+    --color-suggestion:        #22c55e;
+    --color-suggestion-bg:     rgba(34,197,94,0.10);
+    --color-suggestion-border: #22c55e;
+
+    --color-danger-text:   #f87171;
+    --color-danger-bg:     rgba(239,68,68,0.10);
+    --color-danger-border: #ef4444;
+    --color-danger-hover:  rgba(239,68,68,0.20);
+
+    --color-success-text:   #22c55e;
+    --color-success-bg:     rgba(34,197,94,0.10);
+    --color-success-border: #22c55e;
+
+    --color-neutral-text:   #8b949e;
+    --color-neutral-bg:     rgba(139,148,158,0.10);
+    --color-neutral-border: #30363d;
+    --color-neutral-hover:  rgba(139,148,158,0.20);
+
+    /* shadcn/radix base vars */
+    --background:             222.2 84% 4.9%;
+    --foreground:             210 40% 98%;
+    --card:                   222.2 84% 4.9%;
+    --card-foreground:        210 40% 98%;
+    --primary:                210 40% 98%;
+    --primary-foreground:     222.2 47.4% 11.2%;
+    --secondary:              217.2 32.6% 17.5%;
+    --secondary-foreground:   210 40% 98%;
+    --muted:                  217.2 32.6% 17.5%;
+    --muted-foreground:       215 20.2% 65.1%;
+    --border:                 217.2 32.6% 17.5%;
+    --radius:                 0.5rem;
+  }
+
+  /* Light theme */
+  .theme-light {
+    --color-bg:           #f6f8fa;
+    --color-surface:      #ffffff;
+    --color-border:       #d0d7de;
+    --color-text:         #1f2328;
+    --color-subtext:      #57606a;
+    --color-accent:       #7c3aed;
+    --color-accent-hover: #6d28d9;
+    --color-code-bg:      #f6f8fa;
+
+    --background:             0 0% 100%;
+    --foreground:             222.2 84% 4.9%;
+    --card:                   0 0% 100%;
+    --card-foreground:        222.2 84% 4.9%;
+    --primary:                222.2 47.4% 11.2%;
+    --primary-foreground:     210 40% 98%;
+    --secondary:              210 40% 96.1%;
+    --secondary-foreground:   222.2 47.4% 11.2%;
+    --muted:                  210 40% 96.1%;
+    --muted-foreground:       215.4 16.3% 46.9%;
+    --border:                 214.3 31.8% 91.4%;
+  }
+}
+
+/* ── Tailwind component classes ──────────────────────────────────────────────*/
+@layer components {
+  .bg-app     { background-color: var(--color-bg); }
+  .bg-surface { background-color: var(--color-surface); }
+  .border-theme { border-color: var(--color-border); }
+  .text-primary { color: var(--color-text); }
+  .text-muted   { color: var(--color-subtext); }
+  .text-accent  { color: var(--color-accent); }
+  .bg-accent    { background-color: var(--color-accent); }
+
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    transition: border-color 0.15s ease;
+  }
+  .card-hoverable:hover {
+    border-color: var(--color-accent);
+  }
+
+  .badge-critical {
+    color: var(--color-critical);
+    background-color: var(--color-critical-bg);
+    border: 1.5px solid var(--color-critical-border);
+  }
+  .badge-warning {
+    color: var(--color-warning);
+    background-color: var(--color-warning-bg);
+    border: 1.5px solid var(--color-warning-border);
+  }
+  .badge-suggestion {
+    color: var(--color-suggestion);
+    background-color: var(--color-suggestion-bg);
+    border: 1.5px solid var(--color-suggestion-border);
+  }
+}
+
+/* ── Global base styles ──────────────────────────────────────────────────────*/
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────*/
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover  { background: #8b949e; }
+*:hover::-webkit-scrollbar-thumb { background: #30363d; }
