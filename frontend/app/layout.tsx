@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "AI Code Reviewer",
   description: "Instant AI-powered code analysis",
