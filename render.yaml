@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ai-code-reviewer-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: GROQ_API_KEY
+        sync: false
+      - key: E2B_API_KEY
+        sync: false
