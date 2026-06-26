@@ -17,6 +17,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000',
+      'https://yashdev-code-reviewer.vercel.app',
       'https://ai-code-reviewer-teal-tau.vercel.app',
       /\.vercel\.app$/,
       process.env.FRONTEND_URL || '',
